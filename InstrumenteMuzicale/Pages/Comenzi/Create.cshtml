@@ -1,0 +1,44 @@
+﻿@page
+@model InstrumenteMuzicale.Pages.Comenzi.CreateModel
+
+@{
+    ViewData["Title"] = "Plasează o comandă";
+}
+
+<h1>Plasează o comandă</h1>
+
+@if (!string.IsNullOrEmpty(ViewData.ModelState[""]?.Errors.FirstOrDefault()?.ErrorMessage))
+{
+    <div class="alert alert-warning">@ViewData.ModelState[""].Errors.FirstOrDefault()?.ErrorMessage</div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Nume client</label>
+        <input asp-for="Comanda.NumeClient" class="form-control" required />
+        <span class="text-danger" asp-validation-for="Comanda.NumeClient"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Adresă livrare</label>
+        <textarea asp-for="Comanda.AdresaLivrare" class="form-control" required></textarea>
+        <span class="text-danger" asp-validation-for="Comanda.AdresaLivrare"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Telefon</label>
+        <input asp-for="Comanda.Telefon" class="form-control" required />
+        <span class="text-danger" asp-validation-for="Comanda.Telefon"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Alege instrumentul</label>
+        <select asp-for="Comanda.InstrumentID" asp-items="ViewBag.Instrumente" class="form-control" required>
+            <option value="">-- Selectează un instrument --</option>
+        </select>
+        <span class="text-danger" asp-validation-for="Comanda.InstrumentID"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Trimite comanda</button>
+    <a asp-page="Index" class="btn btn-secondary">Anulează</a>
+</form>

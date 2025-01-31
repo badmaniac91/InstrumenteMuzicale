@@ -1,0 +1,20 @@
+﻿@page
+@model InstrumenteMuzicale.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Acasă";
+}
+
+<div class="container text-center fade-in">
+    <h1 class="mt-4">Bine ai venit la Instrumente Muzicale!</h1>
+    <p class="lead">Descoperă cele mai bune instrumente muzicale pentru pasionați și profesioniști.</p>
+
+    <div class="immage-container mt-4">
+        <img src="~/images/instrumente.jpg" alt="Instrumente Muzicale" class="img-fluid rounded shadow-lg" />
+
+    </div>
+
+    <p class="mt-4">De la chitare și piane la tobe și vioare, avem tot ce îți trebuie pentru a-ți transforma pasiunea în artă.</p>
+
+    <a asp-page="/Instrumente/Index" class="btn btn-primary mt-3">Vezi Instrumentele Noastre</a>
+</div>

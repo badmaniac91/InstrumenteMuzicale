@@ -1,0 +1,51 @@
+﻿@page
+@model InstrumenteMuzicale.Pages.Comenzi.IndexModel
+
+@{
+    ViewData["Title"] = "Comenzile tale";
+}
+
+<h1>Comenzile tale</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Plasează o nouă comandă</a>
+</p>
+
+@if (Model.Comenzi.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nume Client</th>
+                <th>Telefon</th>
+                <th>Adresă Livrare</th>
+                <th>Instrument</th>
+                <th>Preț</th>
+                <th>Data Comenzii</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comanda in Model.Comenzi)
+            {
+                <tr>
+                    <td>@comanda.NumeClient</td>
+                    <td>@comanda.Telefon</td>
+                    <td>@comanda.AdresaLivrare</td>
+                    <td>@(comanda.Instrument != null ? comanda.Instrument.Nume : "Instrument necunoscut")</td>
+                    <td>@(comanda.Instrument != null ? comanda.Instrument.Pret.ToString("C") : "-")</td>
+                    <td>@comanda.DataComanda.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <a asp-page="Details" asp-route-id="@comanda.ID" class="btn btn-sm btn-info">Detalii</a>
+                        <a asp-page="Edit" asp-route-id="@comanda.ID" class="btn btn-sm btn-warning">Editează</a>
+                        <a asp-page="Delete" asp-route-id="@comanda.ID" class="btn btn-sm btn-danger">Șterge</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-muted">Momentan nu ai plasat nicio comandă.</p>
+}
