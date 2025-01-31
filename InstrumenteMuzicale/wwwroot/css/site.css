@@ -4,7 +4,23 @@ body {
     background-color: #E3FDFD;
     color: #333;
     margin: 0;
-    padding-top: 80px;
+    padding-top: 80px; 
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1; 
 }
 
 .navbar {
@@ -31,15 +47,6 @@ body {
     .navbar-nav .nav-link:hover {
         color: #E3FDFD !important;
     }
-
-.navbar-toggler {
-    border: none;
-}
-
-.navbar-toggler-icon {
-    filter: invert(1);
-}
-
 
 .btn {
     padding: 10px 20px;
@@ -79,15 +86,6 @@ body {
         background-color: #D32F2F;
     }
 
-.btn-warning {
-    background-color: #FFD93D;
-    border: none;
-    color: white;
-}
-
-    .btn-warning:hover {
-        background-color: #FF9F1C;
-    }
 
 .table {
     background-color: white;
@@ -142,70 +140,7 @@ footer {
     color: white !important;
     text-align: center;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     border-top: 3px solid #004D40;
-}
-
-    footer a {
-        color: #E0F2F1;
-    }
-
-        footer a:hover {
-            color: white;
-        }
-
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.image-container {
     position: relative;
-    max-width: 100%;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
-
-    .image-container img {
-        width: 100%; 
-        height: auto;
-        display: block;
-    }
-
-   
-    .image-container::before,
-    .image-container::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 20%;
-        background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
-        z-index: 2;
-    }
-
-    .image-container::before {
-        left: 0;
-    }
-
-    .image-container::after {
-        right: 0;
-        background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
-    }
